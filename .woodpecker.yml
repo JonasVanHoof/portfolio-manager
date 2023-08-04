@@ -5,5 +5,12 @@ when:
 
 steps:
   build:
+    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
+    on-error: ignore
     commands:
-      - docker build -t jonasvanhoof/portfolio-manager-frontend:latest
+      - docker build
+  test:
+    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
+    on-error: ignore
+    commands:
+      - ember test
