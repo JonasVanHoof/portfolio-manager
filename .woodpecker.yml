@@ -8,14 +8,11 @@ steps:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
       - echo "first step done"
-  run:
+  install:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
       - npm install
-      - ember serve
-      - exit
   test:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
-      - npm install
       - ember test
