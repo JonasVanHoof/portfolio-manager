@@ -12,4 +12,4 @@ COPY . ./
 
 EXPOSE 4200
 
-ENTRYPOINT ["ember", "serve", "--proxy", "http://portfolio_manager-identifier-1"]
+ENTRYPOINT ["ember", "serve", "--proxy", "http://portfolio-manager-backend-identifier-1"]
