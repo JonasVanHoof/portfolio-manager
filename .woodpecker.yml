@@ -4,6 +4,10 @@ when:
       - main
 
 steps:
+  passed:
+    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
+    commands:
+      - echo "first step done"
   test:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     on-error: ignore
