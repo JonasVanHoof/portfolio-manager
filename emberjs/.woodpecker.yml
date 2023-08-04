@@ -12,6 +12,12 @@ steps:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
       - npm install
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    settings:
+      repo: ${CI_REPO}
+      tags: "${CI_COMMIT_TAG##v}"
+    secrets: [ docker_username, docker_password ]
   test:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
