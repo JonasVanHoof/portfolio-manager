@@ -1,0 +1,13 @@
+{{#if this.projects}}
+  <div class="projectList">
+    <div class="projectTitles">
+      <p>Project</p>
+      <p></p>
+    </div>
+    <div>
+      {{#each this.projects as |project|}}
+        <ProjectListItem @project={{project}} />
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

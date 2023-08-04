@@ -1,0 +1,13 @@
+<div class="employeeListItem">
+  <a href="/employees/{{@employee.id}}">{{@employee.fullName}}</a>
+  <p>{{@employee.givenName}}</p>
+  <p>{{@employee.familyName}}</p>
+  {{#if @isEditing}}
+    <button
+      id="create"
+      class="baseButton"
+      {{on "click" (fn this.editEmployee @employee)}}
+    >Save</button>
+  {{/if}}
+  <span></span>
+</div>

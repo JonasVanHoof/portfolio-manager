@@ -1,0 +1,14 @@
+.profilePersonalInformation {
+  border-radius: 15px;
+  border: 2px solid var(--border-light-grey);
+  padding: 1.5rem;
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    .fieldLabel {
+      color: rgb(115 119 126);
+      font-size: 0.9rem;
+    }
+  }
+}

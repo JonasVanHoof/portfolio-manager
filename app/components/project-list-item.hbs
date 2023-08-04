@@ -1,0 +1,12 @@
+<div class="projectListItem">
+  <a href="/projects/{{@project.id}}">{{@project.name}}</a>
+  {{#if this.getCompanyNames}}
+    <ul>
+      {{#each this.getCompanyNames as |companyName|}}
+        <li>{{companyName}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>Unknown</p>
+  {{/if}}
+</div>

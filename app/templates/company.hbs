@@ -1,0 +1,146 @@
+<div class="entityDetail">
+  <div class="actionsBar">
+    <div class="filtering"></div>
+    <div class="actionButtons">
+      {{#if this.isExecutingAction}}
+        <button
+          id="cancel"
+          class="baseButton"
+          type="button"
+          {{on "click" (fn this.toggleIsExecutingAction)}}
+        >{{@model.actionBarLabels.CANCEL}}</button>
+      {{/if}}
+      <button
+        id="delete"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.deleteCompany @model.company.id)}}
+      >Delete this company</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAddProject)}}
+      >{{@model.actionBarLabels.addProjectRelation}}</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAddEmployee)}}
+      >{{@model.actionBarLabels.addEmployeeRelation}}</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingRemoveEmployee)}}
+      >{{@model.actionBarLabels.removeEmployeeRelation}}</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingRemoveProject)}}
+      >{{@model.actionBarLabels.removeProjectRelation}}</button>
+    </div>
+  </div>
+  {{#if this.isAddEmployeeToCompanyVisisble}}
+    <div class="create">
+      <label for="employeeInput">
+        Select the employee you want to add
+        <select id="employeeInput">
+          {{#each @model.possibleEmployeesToAdd as |employee|}}
+            <option value={{employee.id}}>{{employee.fullName}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.addEmployeeToCompany @model.company.id)}}
+      >{{@model.actionBarLabels.CREATE}}</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isAddProjectToCompanyVisisble}}
+    <div class="create">
+      <label for="projectInput">
+        Select the project you want to add
+        <select id="projectInput">
+          {{#each @model.possibleProjectsToAdd as |project|}}
+            <option value={{project.id}}>{{project.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.addProjectToCompany @model.company.id)}}
+      >{{@model.actionBarLabels.CREATE}}</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isRemoveEmployeeToCompanyVisisble}}
+    <div class="create">
+      <label for="employeeToRemoveInput">
+        Select the employee you want to remove
+        <select id="employeeToRemoveInput">
+          {{#each @model.companyEmployees as |employee|}}
+            <option value={{employee.id}}>{{employee.fullName}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.removeEmployeeFromCompany @model.company.id)}}
+      >{{@model.actionBarLabels.REMOVE}}</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isRemoveProjectToCompanyVisisble}}
+    <div class="create">
+      <label for="projectToRemoveInput">
+        Select the project you want to remove
+        <select id="projectToRemoveInput">
+          {{#each @model.companyProjects as |project|}}
+            <option value={{project.id}}>{{project.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.removeProjectFromCompany @model.company.id)}}
+      >{{@model.actionBarLabels.REMOVE}}</button>
+    </div>
+  {{/if}}
+
+  <Profile::header @fullName={{@model.company.name}} @jobTitle="" />
+
+  <br />
+
+  <Company::information
+    @description={{@model.company.description}}
+    @address={{@model.company.address}}
+  />
+
+  {{#if @model.companyProjects}}
+    <h3>Projects</h3>
+    <Projects @projects={{@model.companyProjects}} />
+  {{/if}}
+  {{#if @model.companyEmployees}}
+    <h3>Employees</h3>
+    <Employees @employees={{@model.companyEmployees}} />
+  {{/if}}
+</div>

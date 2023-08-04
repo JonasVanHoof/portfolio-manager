@@ -1,0 +1,81 @@
+{{page-title "Employees | Portfolio Manager"}}
+<div class="entity">
+  <h1>{{@model.title}}</h1>
+
+  <div class="actionsBar">
+    <div class="filtering">
+      <Input @value={{this.employeeFilterInput}} />
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.getFilteredEmployees)}}
+      >{{@model.actionBarLabels.SEARCH}}</button>
+    </div>
+
+    <div class="actionButtons">
+      {{#if this.isExecutingAction}}
+        <button
+          id="cancel"
+          class="baseButton"
+          type="button"
+          {{on "click" (fn this.toggleIsExecuting)}}
+        >{{@model.actionBarLabels.CANCEL}}</button>
+      {{/if}}
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setShowCreateEmployee)}}
+      >{{@model.actionBarLabels.NEW}}</button>
+    </div>
+  </div>
+
+  {{#if this.showCreateEmployee}}
+    <div class="create">
+      <label for="firstNameInput">
+        <span class="inputLabel">{{@model.firstNameInputLabel}}</span>
+        <Input id="firstNameInput" @value={{this.firstName}} type="text" />
+      </label>
+      <label for="lastNameInput">
+        <span class="inputLabel">{{@model.lastNameInputLabel}}</span>
+        <Input id="lastNameInput" @value={{this.lastName}} type="text" />
+      </label>
+      <label for="emailInput">
+        <span class="inputLabel">{{@model.emailInputLabel}}</span>
+        <Input id="emailInput" @value={{this.email}} type="text" />
+      </label>
+      <label for="telephoneInput">
+        <span class="inputLabel">{{@model.telephoneInputLabel}}</span>
+        <Input id="telephoneInput" @value={{this.telephone}} type="text" />
+      </label>
+      <label for="addressInput">
+        <span class="inputLabel">{{@model.addressInputLabel}}</span>
+        <Input id="addressInput" @value={{this.address}} type="text" />
+      </label>
+      <label for="jobTitleInput">
+        <span class="inputLabel">{{@model.jobTitleInputLabel}}</span>
+        <Input id="jobTitleInput" @value={{this.jobTitle}} type="text" />
+      </label>
+      <label for="bioInput">
+        <span class="inputLabel">{{@model.bioInputLabel}}</span>
+        <Textarea
+          rows="4"
+          cols="50"
+          id="bioInput"
+          @value={{this.bio}}
+          type="text"
+        />
+      </label>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.createEmployee)}}
+      >{{@model.actionBarLabels.CREATE}}</button>
+    </div>
+  {{/if}}
+
+  <Employees @employees={{this.employees}} />
+</div>

@@ -1,0 +1,98 @@
+<div class="entityDetail">
+  <div class="actionsBar">
+    <div class="filtering"></div>
+    <div class="actionButtons">
+      {{#if this.isExecutingAction}}
+        <button
+          id="cancel"
+          class="baseButton"
+          type="button"
+          {{on "click" (fn this.toggleIsExecutingAction)}}
+        >Cancel</button>
+      {{/if}}
+      <button
+        id="delete"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.deleteEmployee @model.employee.id)}}
+      >Delete this employee</button>
+
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAssignProject)}}
+      >Assign to project</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAssignCompany)}}
+      >Assign to company </button>
+    </div>
+  </div>
+
+  {{#if this.isAddProjectToEmployeeIsVisisble}}
+    <div class="create">
+      <label for="projectSelectInput">
+        Select the project you want to assign this employee too
+        <select id="projectSelectInput">
+          {{#each this.possibleProjectsToAssign as |project|}}
+            <option value={{project.id}}>{{project.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.addProjectToEmployee @model.employee.id)}}
+      >Assign</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isAddCompanyToEmployeeIsVisisble}}
+    <div class="create">
+      <label for="companySelectInput">
+        Select the company you want to assign this employee too
+        <select id="companySelectInput">
+          {{#each this.possibleCompaniesToAssign as |company|}}
+            <option value={{company.id}}>{{company.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.addCompanyToEmployee @model.employee.id)}}
+      >Assign</button>
+    </div>
+  {{/if}}
+
+  <Profile::header
+    @fullName={{@model.employee.fullName}}
+    @jobTitle={{@model.employee.jobTitle}}
+  />
+  <br />
+  <Profile::personal
+    @givenName={{@model.employee.givenName}}
+    @familyName={{@model.employee.familyName}}
+    @email={{@model.employee.email}}
+    @telephone={{@model.employee.telephone}}
+    @bio={{@model.employee.bio}}
+  />
+
+  {{#if @model.projectsList}}
+    <h3>Projects</h3>
+    <Projects @projects={{@model.projectsList}} />
+  {{/if}}
+  {{#if @model.companiesList}}
+    <h3>Companies</h3>
+    <Companies @companies={{@model.companiesList}} />
+  {{/if}}
+</div>

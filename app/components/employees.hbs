@@ -1,0 +1,18 @@
+{{#if this.employees}}
+  <div class="employeeList">
+    <div class="employeeTitles">
+      <p>Fullname</p>
+      <p>Name</p>
+      <p>Lastname</p>
+      <p></p>
+    </div>
+    <div>
+      {{#each this.employees as |employee|}}
+        <EmployeeListItem
+          @employee={{employee}}
+          @isEditing={{this.isEditing}}
+        />
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

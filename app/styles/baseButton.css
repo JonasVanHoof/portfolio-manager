@@ -1,0 +1,44 @@
+.baseButton {
+  color: var(--text-color-white);
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 5px;
+  border-radius: 4px;
+  font-weight: var(--menu-font-weight);
+}
+.baseButton:hover {
+  cursor: pointer;
+  scale: 1.01;
+}
+
+#create {
+  background-color: var(--background-light-blue);
+}
+
+#new {
+  background-color: var(--background-light-blue);
+}
+
+#cancel {
+  background-color: var(--background-light-orange);
+}
+
+#delete {
+  background-color: var(--background-light-red);
+}
+
+#create:disabled {
+  background-color: var(--text-color-grey);
+}
+
+#new:disabled {
+  background-color: var(--text-color-grey);
+}
+
+#cancel:disabled {
+  background-color: var(--text-color-grey);
+}
+
+#delete:disabled {
+  background-color: var(--text-color-grey);
+}

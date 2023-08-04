@@ -1,0 +1,14 @@
+.projectInformation {
+  border-radius: 15px;
+  border: 2px solid var(--border-light-grey);
+  padding: 1.5rem;
+  .fields {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, auto);
+    .fieldLabel {
+      color: rgb(115 119 126);
+      font-size: 0.9rem;
+    }
+  }
+}

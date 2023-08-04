@@ -1,0 +1,37 @@
+<div class="createCompany">
+  <label for="companyNameInput">
+    Name
+    <Input
+      id="companyNameInput"
+      @value={{this.name}}
+      placeholder="Name"
+      type="text"
+    />
+  </label>
+  <label for="companyDescriptionInput">
+    Description
+    <Textarea
+      rows="4"
+      cols="50"
+      id="companyDescriptionInput"
+      @value={{this.description}}
+      placeholder="Description"
+      type="text"
+    />
+  </label>
+  <label for="companyAddressInput">
+    Address
+    <Input
+      id="companyAddressInput"
+      @value={{this.address}}
+      placeholder="Address"
+      type="text"
+    />
+  </label>
+  <button
+    id="new"
+    class="baseButton"
+    type="button"
+    {{on "click" (fn this.create)}}
+  >Create</button>
+</div>

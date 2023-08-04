@@ -1,0 +1,16 @@
+.actionsBar {
+  border-radius: var(--border-radius-items);
+  border: 2px solid var(--border-light-grey);
+  padding: 1rem;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+  .filtering {
+    text-align: left;
+  }
+  .actionButtons {
+    text-align: right;
+  }
+}

@@ -1,0 +1,15 @@
+{{#if this.companies}}
+  <div class="companyList">
+    <div class="companyTitles">
+      <p>Company name</p>
+      <p>Projects</p>
+      <p>Employees</p>
+      <p></p>
+    </div>
+    <div>
+      {{#each this.companies as |company|}}
+        <CompanyListItem @company={{company}} @isEditing={{this.isEditing}} />
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

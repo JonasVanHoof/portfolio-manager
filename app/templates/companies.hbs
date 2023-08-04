@@ -1,0 +1,67 @@
+{{page-title "Companies | Portfolio Manager"}}
+
+<div class="entity">
+  <h1>{{@model.title}}</h1>
+
+  <div class="actionsBar">
+    <div class="filtering"></div>
+    <div class="actionButtons">
+      {{#if this.isExecutingAction}}
+        <button
+          id="cancel"
+          class="baseButton"
+          type="button"
+          {{on "click" (fn this.toggleIsExecuting)}}
+        >{{@model.actionBarLabels.CANCEL}}</button>
+      {{/if}}
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setShowCreateCompany)}}
+      >{{@model.actionBarLabels.NEW}}</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setShowEditCompany)}}
+      >{{@model.actionBarLabels.EDIT}}</button>
+    </div>
+  </div>
+
+  {{#if this.showCreateCompany}}
+    {{! <Company::Create /> }}
+    <div class="create">
+      <label for="companyNameInput">
+        <span class="inputLabel">{{@model.companyNameInputLabel}}</span>
+        <Input id="companyNameInput" @value={{this.name}} type="text" />
+      </label>
+      <label for="companyDescriptionInput">
+        <span class="inputLabel">{{@model.companyDescriptionInputLabel}}</span>
+        <Textarea
+          rows="4"
+          cols="50"
+          id="projectDescriptionInput"
+          @value={{this.description}}
+          type="text"
+        />
+      </label>
+      <label class="inputLabel" for="companyAddressInput">
+        <span class="inputLabel">{{@model.companyAddressInputLabel}}</span>
+        <Input id="companyAddressInput" @value={{this.address}} type="text" />
+      </label>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.createCompany)}}
+      >{{@model.actionBarLabels.CREATE}}</button>
+    </div>
+  {{/if}}
+
+  <br />
+
+  <Companies @companies={{@model.companies}} @isEditing={{this.isEditing}} />
+</div>

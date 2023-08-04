@@ -1,0 +1,14 @@
+<div class="sideBar">
+  <div class="container">
+    <div class="profile">
+      <div class="picture"></div>
+      Inuits User
+    </div>
+    {{#each @titles as |title|}}
+          <MenuTitleItem 
+            @title={{title.label}}
+            @route={{title.route}}
+          />
+    {{/each}}
+  </div>
+</div>

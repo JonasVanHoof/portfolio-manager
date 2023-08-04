@@ -1,0 +1,245 @@
+@import "./root.css";
+@import "./baseButton.css";
+@import "./actionsBar.css";
+@import "./create.css";
+@import "./profileHeaderCard.css";
+@import "./profilePersonalInformation.css";
+@import "./companyInformation.css";
+@import "./projectInformation.css";
+
+.ember-application {
+  font-family: var(--font-family);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+.home {
+  padding: 0;
+  background-color: var(--text-color-white);
+  display: grid;
+  grid-template-columns: 20vw auto;
+  height: 100%;
+  width: 100%;
+
+  .sideBar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 1rem 0 0;
+
+    .container {
+      height: 100%;
+      background-color: var(--background-light-blue);
+      width: 100%;
+      border-top-right-radius: 40px;
+      color: var(--text-color-white);
+
+      .profile {
+        height: 6rem;
+        margin: 0 1rem 2rem 1.5rem;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        font-weight: var(--menu-font-weight);
+        font-size: calc(var(--menu-font-size) - 0.1rem);
+
+        .picture {
+          width: 50px;
+          height: 50px;
+          background: rgb(201 201 201 / 25.3%);
+          border-radius: 50px;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.menu-item-item {
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: rgb(201 201 201 / 25.3%);
+  }
+}
+
+.menu-item-item:target {
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  scale: 3;
+}
+
+.menu-item-item:hover {
+  background-color: rgb(10 65 214 / 82.2%);
+  border-radius: var(--border-radius-items);
+  cursor: pointer;
+}
+
+.menu-item-item > a {
+  color: var(--text-color-white);
+  padding: 0.5rem 1rem !important;
+  margin: 0;
+  font-size: var(--menu-font-size);
+  font-weight: var(--menu-font-weight);
+  text-decoration: none;
+}
+
+.entity {
+  padding: 1rem 2.5rem;
+}
+
+.companyList {
+  border: 2px solid var(--border-light-grey);
+  border-bottom: none;
+  border-radius: var(--border-radius-items);
+  display: flex;
+  flex-direction: column;
+
+  .companyTitles {
+    background-color: var(--background-light-grey);
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 4rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-color-grey);
+    font-weight: var(--menu-font-weight);
+    border-top-left-radius: var(--border-radius-items);
+    border-top-right-radius: var(--border-radius-items);
+  }
+}
+
+.employeeList {
+  border: 2px solid var(--border-light-grey);
+  border-bottom: none;
+  border-radius: var(--border-radius-items);
+  display: flex;
+  flex-direction: column;
+
+  .employeeTitles {
+    background-color: var(--background-light-grey);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 4rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-color-grey);
+    font-weight: var(--menu-font-weight);
+    border-top-left-radius: var(--border-radius-items);
+    border-top-right-radius: var(--border-radius-items);
+  }
+}
+
+.projectList {
+  border: 2px solid var(--border-light-grey);
+  border-bottom: none;
+  border-radius: var(--border-radius-items);
+  display: flex;
+  flex-direction: column;
+
+  .projectTitles {
+    background-color: var(--background-light-grey);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.5rem 1rem;
+    color: var(--text-color-grey);
+    font-weight: var(--menu-font-weight);
+    border-top-left-radius: var(--border-radius-items);
+    border-top-right-radius: var(--border-radius-items);
+  }
+}
+
+.companyListItem {
+  margin: 0 6px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 4rem;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--border-light-grey);
+}
+
+.companyListItem > a {
+  margin: 1em 0 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.companyListItem > a:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.companyListItem > a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.employeeListItem {
+  margin: 0 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 4rem;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--border-light-grey);
+}
+
+.employeeListItem > a {
+  margin: 1em 0 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.employeeListItem > a:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.employeeListItem > a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.projectListItem {
+  margin: 0 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0.5rem 1.5rem;
+  border-bottom: 2px solid var(--border-light-grey);
+}
+
+.projectListItem > a {
+  margin: 1em 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.projectListItem > a:visited {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.projectListItem > a:link {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
+.entityDetail {
+  padding: 1rem 2.5rem;
+}
+
+input,
+textarea,
+select {
+  border-radius: var(--border-radius-items);
+  border: 1px solid var(--background-light-grey);
+  padding: 5px 1rem;
+  font-family: var(--font-family);
+}

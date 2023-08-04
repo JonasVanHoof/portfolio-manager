@@ -1,0 +1,23 @@
+<div class="companyListItem">
+  {{#if @isEditing}}
+    <Input
+      type="text"
+      @value={{this.updatedCompanyName}}
+      placeholder={{@company.name}}
+    />
+  {{/if}}
+  {{#unless @isEditing}}
+    <a href="/companies/{{@company.id}}">{{@company.name}}</a>
+  {{/unless}}
+
+  <p>{{this.getProjectCount @company.id}}</p>
+  <p>{{this.getEmployeeCount @company.id}}</p>
+  {{#if @isEditing}}
+    <button
+      id="create"
+      class="baseButton"
+      {{on "click" (fn this.editCompany @company)}}
+    >Save</button>
+  {{/if}}
+  <span></span>
+</div>

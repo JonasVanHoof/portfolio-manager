@@ -1,0 +1,118 @@
+<div class="entityDetail">
+  <div class="actionsBar">
+    <div class="filtering"></div>
+    <div class="actionButtons">
+      {{#if this.isExecutingAction}}
+        <button
+          id="cancel"
+          class="baseButton"
+          type="button"
+          {{on "click" (fn this.toggleIsExecutingAction)}}
+        >Cancel</button>
+      {{/if}}
+      <button
+        id="delete"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.deleteProject @model.project.id)}}
+      >Delete this project</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAssignEmployee)}}
+      >Assign employee</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingAssignCompany)}}
+      >Assign company</button>
+      <button
+        id="create"
+        class="baseButton"
+        type="button"
+        disabled={{this.isExecutingAction}}
+        {{on "click" (fn this.setIsShowingRemoveEmployee)}}
+      >Remove employee</button>
+    </div>
+  </div>
+
+  {{#if this.isAddEmployeeToProjectVisisble}}
+    <div class="create">
+      <label for="employeeInput">
+        Select the employee you want to add
+        <select id="employeeInput">
+          {{#each this.possibleEmployeesToAssign as |employee|}}
+            <option value={{employee.id}}>{{employee.fullName}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.assignEmployee @model.project.id)}}
+      >Assign</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isAddCompanyToProjectVisisble}}
+    <div class="create">
+      <label for="companyInput">
+        Select the company you want to add
+        <select id="companyInput">
+          {{#each this.possibleCompaniesToAssign as |company|}}
+            <option value={{company.id}}>{{company.name}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.assignCompany @model.project.id)}}
+      >Assign</button>
+    </div>
+  {{/if}}
+
+  {{#if this.isRemoveEmployeeToCompanyVisisble}}
+    <div class="create">
+      <label for="employeeToRemoveInput">
+        Select the employee you want to remove
+        <select id="employeeToRemoveInput">
+          {{#each @model.employeesList as |employee|}}
+            <option value={{employee.id}}>{{employee.fullName}}</option>
+          {{/each}}
+        </select>
+      </label>
+
+      <button
+        id="new"
+        class="baseButton"
+        type="button"
+        {{on "click" (fn this.removeEmployeeFromProject @model.project.id)}}
+      >Remove</button>
+    </div>
+  {{/if}}
+
+  <Profile::header @fullName={{@model.project.name}} @jobTitle="" />
+
+  <br />
+
+  <Project::project-information @description={{@model.project.description}} />
+
+  {{#if @model.employeesList}}
+    <h3>Employees</h3>
+    <Employees @employees={{@model.employeesList}} />
+  {{/if}}
+
+  {{#if @model.companyList}}
+    <h3>Companies</h3>
+    <Companies @companies={{@model.companyList}} />
+  {{/if}}
+</div>
