@@ -8,4 +8,5 @@ steps:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     on-error: ignore
     commands:
+      - npm install
       - ember test
