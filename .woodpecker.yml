@@ -1,0 +1,9 @@
+when:
+  - event: push
+    branch:
+      - main
+
+steps:
+  build:
+    commands:
+      - docker build -t jonasvanhoof/portfolio-manager-frontend:latest
