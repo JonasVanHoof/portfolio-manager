@@ -5,13 +5,13 @@ when:
 
 steps:
   test:
-    image: ${CI_DOCKER_BUILD_TAG}:1.0.0
+    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     on-error: ignore
     commands:
       - npm install
       - ember test
   run:
-    image: ${CI_DOCKER_BUILD_TAG}:1.0.0
+    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     on-error: ignore
     commands:
       - npm install
