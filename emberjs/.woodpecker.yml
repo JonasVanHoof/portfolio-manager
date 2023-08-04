@@ -1,24 +1,26 @@
-when:
-  - event: push
-    branch:
-      - main
-
 steps:
   passed:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
       - echo "first step done"
+    when:
+      event: [push, tag]
+      branch:
+        - main
   install:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
       - npm install
+    when:
+      event: push
+      branch:
+        - main
   build:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       repo: ${CI_REPO}
       tags: "${CI_COMMIT_TAG##v}"
-    secrets: [ docker_username, docker_password ]
-  test:
-    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
-    commands:
-      - ember test
+    secrets: [docker_username, docker_password]
+    when:
+      event: tag
+      tag: v*
