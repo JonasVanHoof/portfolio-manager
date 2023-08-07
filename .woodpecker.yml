@@ -13,6 +13,7 @@ steps:
     secrets: [docker_username, docker_password]
 
 when:
-  event: push
+  event: tag
+  tag: v*
   branch:
     - master
