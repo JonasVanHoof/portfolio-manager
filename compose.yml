@@ -3,12 +3,12 @@ version: '3.4'
 services:
   dashboard:
     build:
-      context: ./emberjs
+      context: ./
       dockerfile: Dockerfile
     ports:
       - '4200:4200'
     volumes:
-      - ./emberjs:/usr/src/app
+      - ./:/usr/src/app
     networks:
       - portfolio-manager
 
