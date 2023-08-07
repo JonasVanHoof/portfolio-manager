@@ -4,7 +4,6 @@ steps:
     commands:
       - echo "first step done"
       - echo ${CI_REPO}
-      - echo ${CI_COMMIT_TAG##v}
   install:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
@@ -13,15 +12,15 @@ steps:
       event: push
       branch:
         - main
-  # build:
-  #   image: woodpeckerci/plugin-docker-buildx
-  #   pull: true
-  #   settings:
-  #     repo: ${CI_REPO}
-  #     tags: "${CI_COMMIT_TAG##v}"
-  #   secrets: [docker_username, docker_password]
-  #   when:
-  #     event: tag
-  #     tag: v*
-  #     branch:
-  #       - main
+  build:
+    image: woodpeckerci/plugin-docker-buildx
+    pull: true
+    settings:
+      repo: ${CI_REPO}
+      tags: "latest"
+    secrets: [docker_username, docker_password]
+    when:
+      event: tag
+      tag: v*
+      branch:
+        - main
