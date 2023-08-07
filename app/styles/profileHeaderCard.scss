@@ -1,7 +1,7 @@
 .profileHeaderCard {
   margin-top: 2rem;
-  border-radius: 15px;
-  border: 2px solid var(--border-light-grey);
+  border-radius: $au-radius;
+  border: $au-border solid var(--border-light-grey);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
     border-radius: 120px;
     height: 120px;
     width: 120px;
-    background: rgb(7 50 166 / 48%);
+    background: $au-blue-600;
     justify-content: center;
   }
   .information {
@@ -23,7 +23,7 @@
     .jobTitle {
       margin-top: 0;
       color: rgb(115 119 126);
-      font-size: 0.9rem;
+      font-size: $au-font-secondary;
     }
   }
 }

@@ -1,6 +1,6 @@
 .profilePersonalInformation {
-  border-radius: 15px;
-  border: 2px solid var(--border-light-grey);
+  border-radius: $au-radius;
+  border: $au-border solid var(--border-light-grey);
   padding: 1.5rem;
   .fields {
     display: grid;
@@ -8,7 +8,7 @@
     grid-template-rows: repeat(3, auto);
     .fieldLabel {
       color: rgb(115 119 126);
-      font-size: 0.9rem;
+      font-size: $au-font-secondary;
     }
   }
 }

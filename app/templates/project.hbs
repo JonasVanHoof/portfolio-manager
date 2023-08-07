@@ -105,12 +105,12 @@
   <br />
 
   <Project::project-information @description={{@model.project.description}} />
-
+  <br />
   {{#if @model.employeesList}}
     <h3>Employees</h3>
     <Employees @employees={{@model.employeesList}} />
   {{/if}}
-
+  <br />
   {{#if @model.companyList}}
     <h3>Companies</h3>
     <Companies @companies={{@model.companyList}} />

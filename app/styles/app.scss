@@ -1,3 +1,7 @@
+// Imported appuniversum stylings
+@import "ember-appuniversum";
+
+// Local stylings
 @import "./root.scss";
 @import "./baseButton.scss";
 @import "./actionsBar.scss";
@@ -8,12 +12,13 @@
 @import "./projectInformation.scss";
 
 .ember-application {
-  font-family: var(--font-family);
+  font-family: $au-font;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+  font-size: $au-global-font-size;
 }
 
 .home {
@@ -32,19 +37,19 @@
 
     .container {
       height: 100%;
-      background-color: var(--background-light-blue);
+      background-color: $au-blue-700;
       width: 100%;
-      border-top-right-radius: 40px;
+      border-top-right-radius: $au-radius;
       color: var(--text-color-white);
 
       .profile {
         height: 6rem;
-        margin: 0 1rem 2rem 1.5rem;
+        margin: 2rem 1rem 2rem 1.5rem;
         display: flex;
         justify-content: left;
         align-items: center;
         font-weight: var(--menu-font-weight);
-        font-size: calc(var(--menu-font-size) - 0.1rem);
+        font-size: calc($au-global-font-size - 0.1rem);
 
         .picture {
           width: 50px;
@@ -78,8 +83,8 @@
 }
 
 .menu-item-item:hover {
-  background-color: rgb(10 65 214 / 82.2%);
-  border-radius: var(--border-radius-items);
+  background-color: $au-blue-700;
+  border-radius: $au-radius;
   cursor: pointer;
 }
 
@@ -97,47 +102,47 @@
 }
 
 .companyList {
-  border: 2px solid var(--border-light-grey);
+  border: $au-border solid var(--border-light-grey);
   border-bottom: none;
-  border-radius: var(--border-radius-items);
+  border-radius: $au-radius;
   display: flex;
   flex-direction: column;
 
   .companyTitles {
     background-color: var(--background-light-grey);
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 4rem;
+    grid-template-columns: 2fr 1fr 1fr 6rem;
     padding: 0.5rem 1rem;
     color: var(--text-color-grey);
     font-weight: var(--menu-font-weight);
-    border-top-left-radius: var(--border-radius-items);
-    border-top-right-radius: var(--border-radius-items);
+    border-top-left-radius: $au-radius;
+    border-top-right-radius: $au-radius;
   }
 }
 
 .employeeList {
-  border: 2px solid var(--border-light-grey);
+  border: $au-border solid var(--border-light-grey);
   border-bottom: none;
-  border-radius: var(--border-radius-items);
+  border-radius: $au-radius;
   display: flex;
   flex-direction: column;
 
   .employeeTitles {
     background-color: var(--background-light-grey);
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 4rem;
+    grid-template-columns: 1fr 1fr 1fr 6rem;
     padding: 0.5rem 1rem;
     color: var(--text-color-grey);
     font-weight: var(--menu-font-weight);
-    border-top-left-radius: var(--border-radius-items);
-    border-top-right-radius: var(--border-radius-items);
+    border-top-left-radius: $au-radius;
+    border-top-right-radius: $au-radius;
   }
 }
 
 .projectList {
-  border: 2px solid var(--border-light-grey);
+  border: $au-border solid var(--border-light-grey);
   border-bottom: none;
-  border-radius: var(--border-radius-items);
+  border-radius: $au-radius;
   display: flex;
   flex-direction: column;
 
@@ -148,21 +153,19 @@
     padding: 0.5rem 1rem;
     color: var(--text-color-grey);
     font-weight: var(--menu-font-weight);
-    border-top-left-radius: var(--border-radius-items);
-    border-top-right-radius: var(--border-radius-items);
+    border-top-left-radius: $au-radius;
+    border-top-right-radius: $au-radius;
   }
 }
 
 .companyListItem {
-  margin: 0 6px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 4rem;
+  grid-template-columns: 2fr 1fr 1fr 6rem;
   padding: 0.5rem 1.5rem;
   border-bottom: 2px solid var(--border-light-grey);
 }
 
 .companyListItem > a {
-  margin: 1em 0 0;
   text-decoration: none;
   cursor: pointer;
 }
@@ -180,15 +183,13 @@
 }
 
 .employeeListItem {
-  margin: 0 6px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 4rem;
+  grid-template-columns: 1fr 1fr 1fr 6rem;
   padding: 0.5rem 1.5rem;
   border-bottom: 2px solid var(--border-light-grey);
 }
 
 .employeeListItem > a {
-  margin: 1em 0 0;
   text-decoration: none;
   cursor: pointer;
 }
@@ -206,7 +207,6 @@
 }
 
 .projectListItem {
-  margin: 0 6px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0.5rem 1.5rem;
@@ -214,7 +214,6 @@
 }
 
 .projectListItem > a {
-  margin: 1em 0;
   text-decoration: none;
   cursor: pointer;
 }
@@ -238,8 +237,8 @@
 input,
 textarea,
 select {
-  border-radius: var(--border-radius-items);
-  border: 1px solid var(--background-light-grey);
+  border-radius: $au-radius;
+  border: $au-border solid var(--background-light-grey);
   padding: 5px 1rem;
   font-family: var(--font-family);
 }
