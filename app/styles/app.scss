@@ -1,11 +1,11 @@
-@import "./root.css";
-@import "./baseButton.css";
-@import "./actionsBar.css";
-@import "./create.css";
-@import "./profileHeaderCard.css";
-@import "./profilePersonalInformation.css";
-@import "./companyInformation.css";
-@import "./projectInformation.css";
+@import "./root.scss";
+@import "./baseButton.scss";
+@import "./actionsBar.scss";
+@import "./create.scss";
+@import "./profileHeaderCard.scss";
+@import "./profilePersonalInformation.scss";
+@import "./companyInformation.scss";
+@import "./projectInformation.scss";
 
 .ember-application {
   font-family: var(--font-family);
