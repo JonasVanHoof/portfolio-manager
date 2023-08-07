@@ -10,6 +10,7 @@ export default class CompaniesController extends Controller {
   @tracked address;
 
   @service store;
+  @service toaster;
 
   companyStoreRepository = new CompanyStoreRepository(this.store);
 
@@ -26,6 +27,11 @@ export default class CompaniesController extends Controller {
       this.description,
       this.address
     );
+
+    this.toaster.success(`Company ${this.name}`, 'Created', {
+      timeOut: 3000,
+      closable: false,
+    });
 
     this.name = '';
     this.description = '';
