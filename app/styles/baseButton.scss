@@ -1,38 +1,16 @@
-.baseButton {
-  color: var(--text-color-white);
-  border: none;
-  padding: 0.5rem 1rem;
-  margin: 5px;
-  border-radius: 4px;
-  font-weight: var(--menu-font-weight);
-}
-.baseButton:hover {
-  cursor: pointer;
-  scale: 1.01;
-}
-
-#create {
-  background-color: $au-blue-700;
-}
-
-#new {
-  background-color: $au-blue-700;
-}
-
 #cancel {
   background-color: $au-yellow-400;
+  border: none;
 }
 
 #delete {
   background-color: var(--background-light-red);
+  border: none;
 }
 
 #create:disabled {
   background-color: var(--text-color-grey);
-}
-
-#new:disabled {
-  background-color: var(--text-color-grey);
+  border: none;
 }
 
 #cancel:disabled {

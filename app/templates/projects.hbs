@@ -5,20 +5,16 @@
     <div class="filtering"></div>
     <div class="actionButtons">
       {{#if this.isCreateProjectDisabled}}
-        <button
+        <AuButton
           id="cancel"
-          class="baseButton"
-          type="button"
           {{on "click" (fn this.setShowCreateCompany false)}}
-        >{{@model.actionBarLabels.CANCEL}}</button>
+        >{{@model.actionBarLabels.CANCEL}}</AuButton>
       {{/if}}
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         disabled={{this.isCreateProjectDisabled}}
         {{on "click" (fn this.setShowCreateCompany true)}}
-      >{{@model.actionBarLabels.NEW}}</button>
+      >{{@model.actionBarLabels.NEW}}</AuButton>
     </div>
   </div>
 
@@ -38,12 +34,12 @@
           type="text"
         />
       </label>
-      <button
-        id="new"
+      <AuButton
+        id="create"
         class="baseButton"
         type="button"
         {{on "click" (fn this.createProject)}}
-      >{{@model.actionBarLabels.CREATE}}</button>
+      >{{@model.actionBarLabels.CREATE}}</AuButton>
     </div>
   {{/if}}
 

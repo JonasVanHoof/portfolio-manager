@@ -3,47 +3,36 @@
     <div class="filtering"></div>
     <div class="actionButtons">
       {{#if this.isExecutingAction}}
-        <button
+        <AuButton
           id="cancel"
-          class="baseButton"
-          type="button"
           {{on "click" (fn this.toggleIsExecutingAction)}}
-        >{{@model.actionBarLabels.CANCEL}}</button>
+        >{{@model.actionBarLabels.CANCEL}}</AuButton>
       {{/if}}
-      <button
+      <AuButton
         id="delete"
-        class="baseButton"
-        type="button"
+        disabled={{this.isExecutingAction}}
         {{on "click" (fn this.deleteCompany @model.company.id)}}
-      >Delete this company</button>
-      <button
+      >Delete this company</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAddProject)}}
-      >{{@model.actionBarLabels.addProjectRelation}}</button>
-      <button
+      >{{@model.actionBarLabels.addProjectRelation}}</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAddEmployee)}}
-      >{{@model.actionBarLabels.addEmployeeRelation}}</button>
-      <button
+      >{{@model.actionBarLabels.addEmployeeRelation}}</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingRemoveEmployee)}}
-      >{{@model.actionBarLabels.removeEmployeeRelation}}</button>
-      <button
+      >{{@model.actionBarLabels.removeEmployeeRelation}}</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingRemoveProject)}}
-      >{{@model.actionBarLabels.removeProjectRelation}}</button>
+      >{{@model.actionBarLabels.removeProjectRelation}}</AuButton>
     </div>
   </div>
   {{#if this.isAddEmployeeToCompanyVisisble}}
@@ -57,12 +46,11 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
+      <AuButton
+        id="create"
         type="button"
         {{on "click" (fn this.addEmployeeToCompany @model.company.id)}}
-      >{{@model.actionBarLabels.CREATE}}</button>
+      >{{@model.actionBarLabels.CREATE}}</AuButton>
     </div>
   {{/if}}
 
@@ -77,12 +65,11 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
+      <AuButton
+        id="create"
         type="button"
         {{on "click" (fn this.addProjectToCompany @model.company.id)}}
-      >{{@model.actionBarLabels.CREATE}}</button>
+      >{{@model.actionBarLabels.CREATE}}</AuButton>
     </div>
   {{/if}}
 
@@ -97,12 +84,11 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
+      <AuButton
+        id="create"
         type="button"
         {{on "click" (fn this.removeEmployeeFromCompany @model.company.id)}}
-      >{{@model.actionBarLabels.REMOVE}}</button>
+      >{{@model.actionBarLabels.REMOVE}}</AuButton>
     </div>
   {{/if}}
 
@@ -117,12 +103,11 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
+      <AuButton
+        id="create"
         type="button"
         {{on "click" (fn this.removeProjectFromCompany @model.company.id)}}
-      >{{@model.actionBarLabels.REMOVE}}</button>
+      >{{@model.actionBarLabels.REMOVE}}</AuButton>
     </div>
   {{/if}}
 

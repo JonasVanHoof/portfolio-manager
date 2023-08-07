@@ -3,34 +3,27 @@
     <div class="filtering"></div>
     <div class="actionButtons">
       {{#if this.isExecutingAction}}
-        <button
+        <AuButton
           id="cancel"
-          class="baseButton"
-          type="button"
           {{on "click" (fn this.toggleIsExecutingAction)}}
-        >Cancel</button>
+        >Cancel</AuButton>
       {{/if}}
-      <button
+      <AuButton
         id="delete"
-        class="baseButton"
-        type="button"
+        disabled={{this.isExecutingAction}}
         {{on "click" (fn this.deleteEmployee @model.employee.id)}}
-      >Delete this employee</button>
+      >Delete this employee</AuButton>
 
-      <button
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAssignProject)}}
-      >Assign to project</button>
-      <button
+      >Assign to project</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAssignCompany)}}
-      >Assign to company </button>
+      >Assign to company </AuButton>
     </div>
   </div>
 
@@ -45,12 +38,10 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         {{on "click" (fn this.addProjectToEmployee @model.employee.id)}}
-      >Assign</button>
+      >Assign</AuButton>
     </div>
   {{/if}}
 
@@ -65,12 +56,10 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         {{on "click" (fn this.addCompanyToEmployee @model.employee.id)}}
-      >Assign</button>
+      >Assign</AuButton>
     </div>
   {{/if}}
 

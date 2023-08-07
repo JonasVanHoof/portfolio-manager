@@ -3,40 +3,33 @@
     <div class="filtering"></div>
     <div class="actionButtons">
       {{#if this.isExecutingAction}}
-        <button
+        <AuButton
           id="cancel"
           class="baseButton"
           type="button"
           {{on "click" (fn this.toggleIsExecutingAction)}}
-        >Cancel</button>
+        >Cancel</AuButton>
       {{/if}}
-      <button
+      <AuButton
         id="delete"
-        class="baseButton"
-        type="button"
+        disabled={{this.isExecutingAction}}
         {{on "click" (fn this.deleteProject @model.project.id)}}
-      >Delete this project</button>
-      <button
+      >Delete this project</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAssignEmployee)}}
-      >Assign employee</button>
-      <button
+      >Assign employee</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingAssignCompany)}}
-      >Assign company</button>
-      <button
+      >Assign company</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setIsShowingRemoveEmployee)}}
-      >Remove employee</button>
+      >Remove employee</AuButton>
     </div>
   </div>
 
@@ -51,12 +44,10 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         {{on "click" (fn this.assignEmployee @model.project.id)}}
-      >Assign</button>
+      >Assign</AuButton>
     </div>
   {{/if}}
 
@@ -71,12 +62,10 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         {{on "click" (fn this.assignCompany @model.project.id)}}
-      >Assign</button>
+      >Assign</AuButton>
     </div>
   {{/if}}
 
@@ -91,12 +80,10 @@
         </select>
       </label>
 
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         {{on "click" (fn this.removeEmployeeFromProject @model.project.id)}}
-      >Remove</button>
+      >Remove</AuButton>
     </div>
   {{/if}}
 

@@ -28,10 +28,7 @@
       type="text"
     />
   </label>
-  <button
-    id="new"
-    class="baseButton"
-    type="button"
-    {{on "click" (fn this.create)}}
-  >Create</button>
+  <AuButton id="create" {{on "click" (fn this.create)}}>
+    Create
+  </AuButton>
 </div>

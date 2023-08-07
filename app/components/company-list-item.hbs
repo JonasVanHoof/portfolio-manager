@@ -13,11 +13,10 @@
   <p>{{this.getProjectCount @company.id}}</p>
   <p>{{this.getEmployeeCount @company.id}}</p>
   {{#if @isEditing}}
-    <button
+    <AuButton
       id="create"
-      class="baseButton"
       {{on "click" (fn this.editCompany @company)}}
-    >Save</button>
+    >Save</AuButton>
   {{/if}}
   <span></span>
 </div>

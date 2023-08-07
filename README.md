@@ -31,4 +31,4 @@ With own styling
 ### V2
 
 Styled following the specifications of [ember-appuniversum](https://appuniversum.github.io/ember-appuniversum/?path=/story/outline-getting-started--page)
-![portfolio view with appuniversum styling](./Resources/portfolio_view_appuniversum_styling.png)
+![portfolio view with appuniversum styling](./Resources/portfolio_view_appuniversum_style.png)

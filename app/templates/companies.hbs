@@ -7,27 +7,21 @@
     <div class="filtering"></div>
     <div class="actionButtons">
       {{#if this.isExecutingAction}}
-        <button
+        <AuButton
           id="cancel"
-          class="baseButton"
-          type="button"
           {{on "click" (fn this.toggleIsExecuting)}}
-        >{{@model.actionBarLabels.CANCEL}}</button>
+        >{{@model.actionBarLabels.CANCEL}}</AuButton>
       {{/if}}
-      <button
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setShowCreateCompany)}}
-      >{{@model.actionBarLabels.NEW}}</button>
-      <button
+      >{{@model.actionBarLabels.NEW}}</AuButton>
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setShowEditCompany)}}
-      >{{@model.actionBarLabels.EDIT}}</button>
+      >{{@model.actionBarLabels.EDIT}}</AuButton>
     </div>
   </div>
 
@@ -52,12 +46,12 @@
         <span class="inputLabel">{{@model.companyAddressInputLabel}}</span>
         <Input id="companyAddressInput" @value={{this.address}} type="text" />
       </label>
-      <button
+
+      <AuButton
         id="create"
-        class="baseButton"
         type="button"
         {{on "click" (fn this.createCompany)}}
-      >{{@model.actionBarLabels.CREATE}}</button>
+      >{{@model.actionBarLabels.CREATE}}</AuButton>
     </div>
   {{/if}}
 

@@ -5,30 +5,24 @@
   <div class="actionsBar">
     <div class="filtering">
       <Input @value={{this.employeeFilterInput}} />
-      <button
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         {{on "click" (fn this.getFilteredEmployees)}}
-      >{{@model.actionBarLabels.SEARCH}}</button>
+      >{{@model.actionBarLabels.SEARCH}}</AuButton>
     </div>
 
     <div class="actionButtons">
       {{#if this.isExecutingAction}}
-        <button
+        <AuButton
           id="cancel"
-          class="baseButton"
-          type="button"
           {{on "click" (fn this.toggleIsExecuting)}}
-        >{{@model.actionBarLabels.CANCEL}}</button>
+        >{{@model.actionBarLabels.CANCEL}}</AuButton>
       {{/if}}
-      <button
-        id="new"
-        class="baseButton"
-        type="button"
+      <AuButton
+        id="create"
         disabled={{this.isExecutingAction}}
         {{on "click" (fn this.setShowCreateEmployee)}}
-      >{{@model.actionBarLabels.NEW}}</button>
+      >{{@model.actionBarLabels.NEW}}</AuButton>
     </div>
   </div>
 
@@ -68,12 +62,10 @@
           type="text"
         />
       </label>
-      <button
+      <AuButton
         id="create"
-        class="baseButton"
-        type="button"
         {{on "click" (fn this.createEmployee)}}
-      >{{@model.actionBarLabels.CREATE}}</button>
+      >{{@model.actionBarLabels.CREATE}}</AuButton>
     </div>
   {{/if}}
 

@@ -3,11 +3,10 @@
   <p>{{@employee.givenName}}</p>
   <p>{{@employee.familyName}}</p>
   {{#if @isEditing}}
-    <button
+    <AuButton
       id="create"
-      class="baseButton"
       {{on "click" (fn this.editEmployee @employee)}}
-    >Save</button>
+    >Save</AuButton>
   {{/if}}
   <span></span>
 </div>
