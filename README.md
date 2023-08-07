@@ -23,4 +23,12 @@ After these values have been set you can build the project with `make build` and
 
 ## Visuals
 
+### V1
+
+With own styling
 ![portfolio view](./Resources/portfolio_view.png)
+
+### V2
+
+Styled following the specifications of [ember-appuniversum](https://appuniversum.github.io/ember-appuniversum/?path=/story/outline-getting-started--page)
+![portfolio view with appuniversum styling](./Resources/portfolio_view_appuniversum_styling.png)
