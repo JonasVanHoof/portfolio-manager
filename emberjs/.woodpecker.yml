@@ -4,6 +4,10 @@ steps:
     commands:
       - echo "first step done"
       - echo ${CI_REPO}
+    when:
+      event: push
+      branch:
+        - master
   install:
     image: jonasvanhoof/portfolio-manager-frontend:1.0.0
     commands:
@@ -11,7 +15,7 @@ steps:
     when:
       event: push
       branch:
-        - main
+        - master
   build:
     image: woodpeckerci/plugin-docker-buildx
     pull: true
@@ -23,4 +27,4 @@ steps:
       event: tag
       tag: v*
       branch:
-        - main
+        - master
