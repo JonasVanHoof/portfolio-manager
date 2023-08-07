@@ -4,15 +4,11 @@ steps:
     commands:
       - echo "first step done"
       - echo ${CI_REPO}
-  install:
-    image: jonasvanhoof/portfolio-manager-frontend:1.0.0
-    commands:
-      - npm install
   build:
     image: woodpeckerci/plugin-docker-buildx
     pull: true
     settings:
-      repo: ${CI_REPO}
+      repo: jonasvanhoof/portfolio-manager-frontend
       tags: "latest"
     secrets: [docker_username, docker_password]
 
